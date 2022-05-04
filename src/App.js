@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   const movies = [
     {
-    pic:"https://static.metacritic.com/images/products/movies/2/89925aaf04b4f53ea58310cbb92f6c1c-250h.jpg",
+    pic:"https://gospeljingle.com/wp-content/uploads/2022/01/Pushpa_-The-Rise-2021.jpg",
     title:"Pushpa:The Rise - Part 1",
     rating:"7.6",
     description:"Story of Pushpa Raj, a lorry driver in Seshachalam forests of South India, set in the backdrop of red sandalwood smuggling. Red Sandalwood is endemic to South-Eastern Ghats (mountain range) of India."
@@ -67,12 +67,12 @@ function App() {
   return (
     <div className="App">
       <div className='main'>
-      {movies.map(nm => <Msg title={nm.title} pic={nm.pic} rating={nm.rating} description={nm.description}/> )}</div> 
+      {movies.map(data => <Movies pic={data.pic} title={data.title} rating={data.rating} description={data.description}/> )}</div> 
     </div>
   );
 }
 
-function Msg({pic,title,rating,description}){
+function Movies({pic,title,rating,description}){
   return  (
      <div className='movie'>
       <img className="profilepic" src ={pic} alt={title} /> <br></br>
@@ -81,7 +81,7 @@ function Msg({pic,title,rating,description}){
         <h1>{title}</h1>
         </div>
         <div className='rating'>
-        <h1>⭐{rating}</h1>
+        <p>⭐{rating}</p>
         </div>
       </div>
       <p>{description}</p>
