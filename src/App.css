@@ -5,7 +5,7 @@
   grid-gap: 1rem;
   gap: 1rem;
   justify-items: center;
-  padding-left: 80px;
+  padding-left: 50px;
   padding-top: 35px;
 }
 
@@ -16,7 +16,7 @@
 
 img{
   height: 650px;
-  width: 80%;
+  width: 90%;
   object-fit: cover;
 }
 
@@ -31,14 +31,14 @@ h1{
 }
 
 .title{
-flex-basis: 50%;
+flex-basis: 60%;
 }
 
 .rating{
-  flex-basis: 32%;
+  flex-basis: 25%;
 }
 
 p{
-  width:80%;
+  width:90%;
   font-weight:500;
 }
