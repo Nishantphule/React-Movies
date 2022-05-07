@@ -1,5 +1,7 @@
 
+import { useState } from 'react';
 import './App.css';
+import {Counter} from './Counter.js'
 
 function App() {
   const movies = [
@@ -66,27 +68,40 @@ function App() {
   ]
   return (
     <div className="App">
-      <div className='main'>
-      {movies.map(data => <Movies pic={data.pic} title={data.title} rating={data.rating} description={data.description}/> )}</div> 
+      <div className='main-container'>
+      {movies.map(data => <Movies movie={data}/> )}</div> 
     </div>
   );
 }
 
-function Movies({pic,title,rating,description}){
+function Movies({movie}){
+  const styles = {
+    color:"green"
+  }
+  movie.rating>7 ? 
+    styles.color = "green" :
+    styles.color = "red"
+
+const [show , setShow] = useState(true);
+
+    const paraStyles = {
+      display: show? "block" : "none"
+    }
+
   return  (
      <div className='movie'>
-      <img className="profilepic" src ={pic} alt={title} /> <br></br>
+      <img className="profilepic" src ={movie.pic} alt={movie.title} /> <br></br>
       <div className='head'>
-        <div  className='title'>
-        <h1>{title}</h1>
-        </div>
-        <div className='rating'>
-        <p>⭐{rating}</p>
-        </div>
+        <h1 className='title'>{movie.title}</h1>
+        <p style={styles} className='rating'>⭐{movie.rating}</p>
       </div>
-      <p>{description}</p>
+      <button onClick={() => setShow(!show)} className="btn"></button>
+      <p className='summary' style={paraStyles} >{movie.description}</p>
+      <Counter/>
      </div>
   );
  }
+
+ 
 
 export default App;
