@@ -1,3 +1,7 @@
+*{
+  background-color: black;
+}
+
 .movie{
   width: 340px;
   margin-bottom: 20px;
@@ -12,14 +16,17 @@
 .title{
   font-size: 24px;
   margin: 0;
+  color: whitesmoke;
 }
 
 .summary{
   margin-top: 0;
+  color: whitesmoke;
 }
 
 .rating{
   font-size: 18px;
+  font-weight: bold;
 }
 
 .head{
@@ -41,6 +48,7 @@
 }
 .like-dislike button{
   margin-left: 10px;
+  color: whitesmoke;
 }
 
 .add-movie{
@@ -54,4 +62,61 @@
   font-size: 25px;
   height: 40px;
   margin-bottom: 20px;
+  color: whitesmoke;
 }
+
+.profilepic1{
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  }
+
+  .users{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .navigate-bar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 10px ;
+    margin-top: 20px;
+  }
+
+  .navigate-bar button{
+    border: 0px;
+    margin-left:30px ;
+    
+  }
+
+  .navigate-bar button:hover{
+    margin-top: -.25rem;
+    margin-bottom: .25rem;
+  }
+
+  .btn-info{
+    background-color: grey;
+    border-radius: 10px;
+  }
+
+  .btn-sum{
+    background-color: grey;
+    border-radius: 10px;
+  }
+
+  .movie-details h1{
+    color: whitesmoke;
+  }
+
+  .msg h1{
+    color: whitesmoke;
+  }
+
+  .home h1{
+    color: whitesmoke;
+  }
