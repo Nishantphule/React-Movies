@@ -1,10 +1,11 @@
 *{
-  background-color: black;
+  background-color: rgb(39, 35, 35);
 }
 
 .movie{
   width: 340px;
   margin-bottom: 20px;
+  background-color: black;
 }
 
 .profilepic{
@@ -17,22 +18,26 @@
   font-size: 24px;
   margin: 0;
   color: whitesmoke;
+  background-color: black;
 }
 
 .summary{
   margin-top: 0;
   color: whitesmoke;
+  background-color: black;
 }
 
 .rating{
   font-size: 18px;
   font-weight: bold;
+  background-color: black;
 }
 
 .head{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: black;
 }
 
 .main-container{
@@ -45,10 +50,12 @@
 .like-dislike{
   display: flex;
   align-items: flex-start;
+  background-color: black;
 }
 .like-dislike button{
   margin-left: 10px;
   color: whitesmoke;
+
 }
 
 .add-movie{
@@ -58,7 +65,7 @@
   justify-content: space-around;
 }
 
-.add-movie input,button{
+.add-movie input,.add-movie button{
   font-size: 25px;
   height: 40px;
   margin-bottom: 20px;
@@ -84,14 +91,26 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-left: 10px ;
-    margin-top: 20px;
+    background-color: black;
+    padding: 10px 0px;
+    box-shadow: 5px 0px 5px 2px black ;
+    position: sticky;
+    top: 0%;
   }
 
   .navigate-bar button{
     border: 0px;
+    font-size: 25px;
     margin-left:30px ;
-    
+    background-color: black;
+    color: whitesmoke;
+  }
+
+  .navigate-bar button a{
+    color: whitesmoke;
+    font-weight: bold;
+    background-color: black;
+    text-decoration: none;
   }
 
   .navigate-bar button:hover{
@@ -120,3 +139,50 @@
   .home h1{
     color: whitesmoke;
   }
+
+  .main-container-info{
+    margin-top:30px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .main-container-info p{
+    background-color: rgb(39, 35, 35);
+  }
+  .movie-info{
+    width: 80%;
+    margin-bottom: 20px;
+    background-color: black;
+    background-color: rgb(39, 35, 35);
+  }
+
+.head-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .head-info h1,p{
+    background-color: rgb(39, 35, 35);
+  }
+
+  .movie-info img{
+    width: 50%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.back-btn button{
+  font-size: 20px;
+  background-color: teal;
+  margin-top: 50px;
+  border-radius: 10px;
+  padding: 5px 5px;
+}
+
+.back-btn button:hover{
+  margin-top: 45px;
+  margin-bottom: 5px;
+
+}

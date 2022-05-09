@@ -1,11 +1,12 @@
 
 import { Routes, Route, Link, useParams, Navigate } from "react-router-dom";
 import { AddColor } from './AddColor';
-import { AddMovie } from './AddMovie';
 import './App.css';
 import {Counter} from './Counter.js'
 import { Home } from "./Home";
 import { Movies } from './Movies.js';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 
 const INITIAL_MOVIE_buttonST = [
@@ -80,7 +81,7 @@ function App() {
             <Link to='/'>Home</Link>
           </button>
           <button>
-          <Link to='/movies'>Movie</Link>
+          <Link to='/movies'>Movies</Link>
           </button>
           <button>
           <Link to='/color'>color</Link>
@@ -106,6 +107,27 @@ function App() {
   );
 }
 
+function AddMovie() {
+  const [Add, setMovie] = useState({pic:"",title:'',rating:"",description:""});
+
+  const [list, setList] = useState(INITIAL_MOVIE_buttonST);
+  const styles = {
+    color: "green"
+  };
+  Add.rating > 7 ?
+    styles.color = "green" :
+    styles.color = "red";
+
+  return (
+    <div className='add-movie'>
+      <input type="text" placeholder='Enter poster url' value={Add.pic} onChange={(e => setMovie({ pic: e.target.value }))}></input>
+      <input type="text" placeholder='Enter movie name' value={Add.title} onChange={(e => setMovie({ title: e.target.value }))}></input>
+      <input type="text" placeholder='Enter movie rating' value={Add.rating} onChange={(e => setMovie({ rating: e.target.value }))}></input>
+      <input type="text" placeholder='Enter poster summary' value={Add.description} onChange={(e => setMovie({ description: e.target.value }))}></input>
+      <button onClick={() => setList([...list, Add])}>Add Movie</button>
+    </div>
+  );
+}
 
 
 function Movieapp() {
@@ -129,12 +151,34 @@ function MovieDetails(){
 
   const { id } = useParams()
   const movie = INITIAL_MOVIE_buttonST[id];
-  console.log(movie)
+  const styles = {
+    color: "green"
+  };
+  movie.rating > 7 ?
+    styles.color = "green" :
+    styles.color = "red";
   return(
-    <div className="movie-details">
-      <h1>Movie Details page {movie.title}</h1>
+    <div className="main-container-info">
+      <div className='movie-info'>
+        <img className="profilepic" src={movie.pic} alt={movie.title} />
+        <div className='head-info'>
+          <h1 className='title'>{movie.title}</h1>
+          <p className='rating' style={styles}>⭐{movie.rating}</p>
+        </div>
+        <p className='summary' >{movie.description}</p>
+        <Backbtn/>
+      </div>
     </div>
   );
+}
+
+function Backbtn(){
+  const navigate = useNavigate();
+  return(
+    <div className="back-btn">
+      <button onClick={() => navigate("/movies")} >◀ BACK</button>
+    </div>
+  )
 }
 
 function User(){
