@@ -134,7 +134,7 @@ function AddMovie() {
       <input type="text" placeholder='Enter movie name' value={Add.title} onChange={(e => setMovie({ ...Add, title: e.target.value }))}></input>
       <input type="text" placeholder='Enter movie rating' value={Add.rating} onChange={(e => setMovie({ ...Add, rating: e.target.value }))}></input>
       <input type="text" placeholder='Enter poster summary' value={Add.description} onChange={(e => setMovie({ ...Add, description: e.target.value }))}></input>
-      <button onClick={() => setList([...list, Add])}>Add Movie</button>
+      <button className="add" onClick={() => setList([...list, Add])}>Add Movie</button>
       <div className='main-container'>
       {list.map((data ,index) => (<Movies movie={data} id={index} />))}
     </div>

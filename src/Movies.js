@@ -24,8 +24,8 @@ export function Movies({ movie,id }) {
         <h1 className='title'>{movie.title}</h1>
         <p style={styles} className='rating'>⭐{movie.rating}</p>
       </div>
-      <button onClick={() => navigate("/movies/"+ id)} className="btn-info">Info</button>
-      <button onClick={() => setShow(!show)} className="btn-sum">Toggle Summary</button>
+      <button onClick={() => navigate("/movies/"+ id)} className="btn-info btnn">Info</button>
+      <button onClick={() => setShow(!show)} className="btn-sum btnn">Toggle Summary</button>
       {/* <p className='summary' style={paraStyles} >{movie.description}</p> */}
       {show ? (<p className='summary'>{movie.description}</p>) : ""}
 
