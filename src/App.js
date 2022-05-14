@@ -7,7 +7,7 @@ import { Home } from "./Home";
 import { Movies } from './Movies.js';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 
 
 const INITIAL_MOVIE_buttonST = [
@@ -119,7 +119,7 @@ function App() {
 }
 
 function AddMovie() {
-  const [Add, setMovie] = useState({pic:"",title:'',rating:"",description:""});
+  const [Add, setMovie] = useState({pic:"",title:'',rating:"",description:"",url:""});
   const [list, setList] = useState(INITIAL_MOVIE_buttonST);
   const styles = {
     color: "green"
@@ -134,6 +134,7 @@ function AddMovie() {
       <input type="text" placeholder='Enter movie name' value={Add.title} onChange={(e => setMovie({ ...Add, title: e.target.value }))}></input>
       <input type="text" placeholder='Enter movie rating' value={Add.rating} onChange={(e => setMovie({ ...Add, rating: e.target.value }))}></input>
       <input type="text" placeholder='Enter poster summary' value={Add.description} onChange={(e => setMovie({ ...Add, description: e.target.value }))}></input>
+      <input type="text" placeholder='Enter movie trailer' value={Add.url} onChange={(e => setMovie({ ...Add, url: e.target.value }))}></input>
       <button className="add" onClick={() => setList([...list, Add])}>Add Movie</button>
       <div className='main-container'>
       {list.map((data ,index) => (<Movies movie={data} id={index} />))}
@@ -173,7 +174,7 @@ function MovieDetails(){
   return(
     <div className="main-container-info">
       <div className='movie-info'>
-        <ReactPlayer url={movie.url} controls={true}/>
+      <iframe width='100%' height='700' src={movie.url} frameborder="0" title="Youtube video player" allow="accelerometer;autoplay;" allowFullScreen ></iframe>
         <div className='head-info'>
           <h1 className='title'>{movie.title}</h1>
           <p className='rating' style={styles}>⭐{movie.rating}</p>
@@ -189,7 +190,7 @@ function Backbtn(){
   const navigate = useNavigate();
   return(
     <div className="back-btn">
-      <button onClick={() => navigate("/movies")} >◀ BACK</button>
+      <button onClick={() => navigate(-1)} >◀ BACK</button>
     </div>
   )
 }

@@ -147,6 +147,7 @@
     width: 100%;
     left: 0;
   }
+  
   .btn-info{
     padding: 5px 15px;
     background-color: grey;
@@ -237,5 +238,6 @@
 .back-btn button:hover{
   margin-top: 45px;
   margin-bottom: 5px;
-
+  cursor: pointer;
 }
+
