@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ColorBox } from './ColorBox';
+import Button from '@mui/material/Button';
 
 export function AddColor() {
   const [color, setColor] = useState("orange");
@@ -11,12 +12,10 @@ export function AddColor() {
   return (
 
     <div className='add-color'>
-      <div>
         <input onChange={(event) => setColor(event.target.value)} style={styles} type="text" placeholder="Enter a color" value={color} />
-        <button onClick={() => setColorList([...colorlist, color])}>Add Color</button>
-      </div>
-
+        <Button className='addcolorbtn' onClick={() => setColorList([...colorlist, color])} variant="contained">Add Movie</Button>
       {colorlist.map(add => <ColorBox color={add} />)}
+      
     </div>
   );
 }

@@ -1,6 +1,3 @@
-*{
-  background-color: rgb(39, 35, 35);
-}
 
 .movie{
   width: 340px;
@@ -54,35 +51,33 @@
 }
 .like-dislike button{
   margin-left: 10px;
-  color: whitesmoke;
-
 }
 
 .add-movie{
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: stretch;
+  gap: 10px;
 }
 
-.add-movie input{
-  font-size: 30px;
-  margin-bottom: 15px;
+.input{
+  width: 80%;
   background-color: lightcyan;
 }
 
 .add{
+  margin-top: 20px;
   font-size: 25px;
-  height: 40px;
   margin-bottom: 20px;
   color: whitesmoke;
+  width: 80%;
 }
 
 
 .add:hover{
   cursor: pointer;
-  font-size: 30px;
-  background-color: green;
 }
 
 
@@ -116,6 +111,7 @@
     border: 0px;
     font-size: 25px;
     margin-left:30px ;
+    padding: 10px 10px;
     background-color: black;
   }
 
@@ -176,10 +172,6 @@
     color: whitesmoke;
   }
 
-  .msg h1{
-    color: whitesmoke;
-  }
-
 
   .home{
     display: flex;
@@ -194,7 +186,7 @@
 
   .home p{
     font-size: 50px;
-    color: blue;
+    color: rgb(143, 143, 153);
     font-weight: bold;
   }
 
@@ -205,7 +197,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 100%;
   }
   .main-container-info p{
     background-color: rgb(39, 35, 35);
@@ -228,16 +220,17 @@
   }
 
 .back-btn button{
-  font-size: 20px;
-  background-color: teal;
   margin-top: 50px;
   border-radius: 10px;
   padding: 5px 5px;
 }
 
-.back-btn button:hover{
-  margin-top: 45px;
-  margin-bottom: 5px;
-  cursor: pointer;
+.add-color{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
