@@ -1,8 +1,7 @@
-
 .movie{
   width: 400px;
   margin-bottom: 20px;
-  background-color: black;
+  height: min-content;
 }
 
 .profilepic{
@@ -12,29 +11,27 @@
 }
 
 .title{
-  font-size: 18px;
+  font-size: 20px;
   margin: 0;
-  color: whitesmoke;
-  background-color: black;
+  background-color: white;
 }
 
 .summary{
   margin-top: 0;
-  color: whitesmoke;
-  background-color: black;
+  background-color: white;
 }
 
 .rating{
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-  background-color: black;
+  background-color: white;
 }
 
 .head{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: black;
+  background-color: white;
 }
 
 .main-container{
@@ -47,7 +44,7 @@
 .like-dislike{
   display: flex;
   align-items: flex-start;
-  background-color: black;
+  background-color: white;
 }
 .like-dislike button{
   margin-left: 10px;
@@ -96,15 +93,9 @@
     justify-content: space-evenly;
   }
 
-.navigate-bar{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-
   .navigate-bar button{
     border: 0px;
-    font-size: 25px;
+    font-size: 22px;
     margin-left:30px ;
     padding: 0px 0px;
     margin: 10px 10px;
@@ -139,32 +130,13 @@
     left: 0;
   }
   
-  .btn-info{
-    padding: 5px 15px;
-    background-color: grey;
-    border-radius: 10px;
-  }
-
-  .btn-sum{
-    padding: 5px 15px;
-    background-color: grey;
-    border-radius: 10px;
-  }
 
   .btn-info:hover{
-    background-color: rgb(78, 176, 233);
-    font-size: 15px;
     cursor: pointer;
   }
 
   .btn-sum:hover{
-    background-color: green;
-    font-size: 15px;
     cursor: pointer;
-  }
-
-  .movie-details h1{
-    color: whitesmoke;
   }
 
 
@@ -194,14 +166,10 @@
     justify-content: center;
     width: 100%;
   }
-  .main-container-info p{
-    background-color: rgb(39, 35, 35);
-  }
+
   .movie-info{
     width: 80%;
     margin-bottom: 20px;
-    background-color: black;
-    background-color: rgb(39, 35, 35);
   }
 
 .head-info{
@@ -211,7 +179,6 @@
   }
 
   .head-info h1,p{
-    background-color: rgb(39, 35, 35);
   }
 
 .back-btn button{

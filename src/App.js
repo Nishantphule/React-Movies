@@ -1,4 +1,3 @@
-
 import { Routes, Route, useParams, Navigate } from "react-router-dom";
 import { AddColor } from './AddColor';
 import './App.css';
@@ -13,6 +12,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import AppBar from '@mui/material/AppBar';
 import { Toolbar } from "@mui/material";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 
 const INITIAL_MOVIE_buttonST = [
@@ -94,8 +94,8 @@ function App() {
 
   return (
     <div className="App">
-      <AppBar  position="static" color="primary">
-      <Toolbar className="navigate-bar" >
+      <AppBar className="navigate-bar" position="static" color="primary">
+      <Toolbar>
       <button onClick={() => navigate("/")} >
             HOME
           </button >
@@ -206,7 +206,7 @@ function Backbtn(){
   const navigate = useNavigate();
   return(
     <div className="back-btn">
-      <Button onClick={() => navigate(-1)} variant="contained">◀ BACK</Button>
+      <Button onClick={() => navigate(-1)} variant="contained"><ArrowBackIosIcon/> BACK</Button>
     </div>
   )
 }

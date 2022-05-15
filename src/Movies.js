@@ -5,6 +5,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import { Card, CardActions, CardContent } from '@mui/material';
 
 
 
@@ -20,10 +21,12 @@ export function Movies({ movie,id }) {
 
   const navigate = useNavigate();
   return (
-    <div className='movie'>
+    <Card className='movie'>
       <img className="profilepic" src={movie.pic} alt={movie.title} /> <br></br>
+      <CardContent>
       <div className='head'>
-        <h1 className='title'>{movie.title} 
+        <h1 className='title'>
+          {movie.title} 
         <IconButton onClick={() => navigate("/movies/"+ id)} className="btn-info btnn" color="primary" aria-label="like">
          <InfoIcon/>
          </IconButton>
@@ -31,13 +34,12 @@ export function Movies({ movie,id }) {
          <IconButton onClick={() => setShow(!show)} className="btn-sum btnn" color="primary" aria-label="like">
          {show ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
          </IconButton>
-
       </h1>
         <p style={styles} className='rating'>⭐{movie.rating}</p>
       </div>
       {show ? (<p className='summary'>{movie.description}</p>) : ""}
-
-      <Counter />
-    </div>
+      </CardContent>
+      <CardActions><Counter /></CardActions>
+    </Card>
   );
 }
