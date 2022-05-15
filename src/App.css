@@ -1,18 +1,18 @@
 
 .movie{
-  width: 340px;
+  width: 400px;
   margin-bottom: 20px;
   background-color: black;
 }
 
 .profilepic{
-  width: 340px;
-  height: 500px;
+  width: 400px;
+  height: 600px;
   object-fit: cover;
 }
 
 .title{
-  font-size: 24px;
+  font-size: 18px;
   margin: 0;
   color: whitesmoke;
   background-color: black;
@@ -96,49 +96,44 @@
     justify-content: space-evenly;
   }
 
-  .navigate-bar{
+.navigate-bar{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    background-color: black;
-    padding: 10px 0px;
-    box-shadow: 5px 0px 5px 2px black ;
-    position: sticky;
-    top: 0%;
+    flex-direction: row;
   }
 
   .navigate-bar button{
     border: 0px;
     font-size: 25px;
     margin-left:30px ;
-    padding: 10px 10px;
-    background-color: black;
+    padding: 0px 0px;
+    margin: 0px 10px;
+    background-color: transparent;
+    color: white;
   }
 
-  .navigate-bar button a{
-    color: whitesmoke;
+  .navigate-bar button {
     font-weight: bold;
-    background-color: black;
     text-decoration: none;
     position: relative;
   }
 
-  .navigate-bar button a::after{
+  .navigate-bar button::after{
     position: absolute;
     content: "";
     width: 0%;
     height: 4px;
-    background-color: green;
+    background-color: black;
     left: 50%;
     bottom: -10px;
     transition: all 0.2s ease-in-out;
   }
 
-  .navigate-bar button a:hover{
+  .navigate-bar button:hover{
     cursor: pointer;
   }
 
-  .navigate-bar button a:hover::after{
+  .navigate-bar button:hover::after{
     cursor: pointer;
     width: 100%;
     left: 0;

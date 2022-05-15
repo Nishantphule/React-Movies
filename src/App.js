@@ -1,5 +1,5 @@
 
-import { Routes, Route, Link, useParams, Navigate } from "react-router-dom";
+import { Routes, Route, useParams, Navigate } from "react-router-dom";
 import { AddColor } from './AddColor';
 import './App.css';
 import {Counter} from './Counter.js'
@@ -11,6 +11,8 @@ import * as React from 'react';
 // import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import AppBar from '@mui/material/AppBar';
+import { Toolbar } from "@mui/material";
 
 
 const INITIAL_MOVIE_buttonST = [
@@ -88,25 +90,29 @@ const INITIAL_MOVIE_buttonST = [
 
 function App() {
   const [list, setList] = useState(INITIAL_MOVIE_buttonST);
+  const navigate = useNavigate();
+
   return (
     <div className="App">
-      <div className="navigate-bar">
-          <button>
-            <Link to='/'>Home</Link>
+      <AppBar  position="static" color="primary">
+      <Toolbar className="navigate-bar" >
+      <button onClick={() => navigate("/")} >
+            HOME
+          </button >
+          <button onClick={() => navigate("/movies")} >
+          MOVIES
           </button>
-          <button>
-          <Link to='/movies'>Movies</Link>
+          <button onClick={() => navigate("/addmovies")} >
+          ADD MOVIES
           </button>
-          <button>
-          <Link to='/color'>color</Link>
+          <button onClick={() => navigate("/color")} >
+          COLOR GAME
           </button>
-          <button>
-          <Link to='/user'>User</Link>
-          </button>
-          <button>
-          <Link to='/addmovies'>Add Movie</Link>
-          </button>
-      </div>
+      </Toolbar>
+        </AppBar>
+        
+
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movieapp list={list} setList={setList}/>} />
@@ -133,10 +139,10 @@ function AddMovie({list, setList}) {
   return (
     <div className='add-movie'>
       <TextField className="input" onChange={(e => setMovie({ ...Add, pic: e.target.value }))} id="filled-basic" label="Enter poster url" variant="filled" />
-      <TextField className="input" onChange={(e => setMovie({ ...Add, title: e.target.value }))} id="filled-basic" label="Enter poster url" variant="filled" />
-      <TextField className="input" onChange={(e => setMovie({ ...Add, rating: e.target.value }))} id="filled-basic" label="Enter poster url" variant="filled" />
-      <TextField className="input" onChange={(e => setMovie({ ...Add, description: e.target.value }))} id="filled-basic" label="Enter poster url" variant="filled" />
-      <TextField className="input" onChange={(e => setMovie({ ...Add, url: e.target.value }))} id="filled-basic" label="Enter poster url" variant="filled" />
+      <TextField className="input" onChange={(e => setMovie({ ...Add, title: e.target.value }))} id="filled-basic" label="Enter movie Title" variant="filled" />
+      <TextField className="input" onChange={(e => setMovie({ ...Add, rating: e.target.value }))} id="filled-basic" label="Enter movie Rating" variant="filled" />
+      <TextField className="input" onChange={(e => setMovie({ ...Add, description: e.target.value }))} id="filled-basic" label="Enter movie Description" variant="filled" />
+      <TextField className="input" onChange={(e => setMovie({ ...Add, url: e.target.value }))} id="filled-basic" label="Enter movie Trailer url" variant="filled" />
       <Button className="add" onClick={() => setList([...list, Add])} variant="contained">Add Movie</Button>
       {/* <div className='main-container'>
       {list.map((data ,index) => (<Movies movie={data} id={index} />))}
