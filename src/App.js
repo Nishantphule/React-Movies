@@ -115,7 +115,7 @@ function App() {
           </Button>
       </div>
       <div className="navbtn1">
-      <Button variant="inherit"  onClick={() => navigate("/color")} >
+      <Button variant="inherit">
           <Brightness7Icon/>LIGHT MODE
           </Button>
       </div>
