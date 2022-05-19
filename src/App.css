@@ -94,22 +94,43 @@
   }
 
 
-  .navbtn{
+  .navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .css-i4bv87-MuiSvgIcon-root{
+    padding-right: 5px;
+  }
+
+  .navbtn1 button{
     border: 0px;
-    font-size: 25px;
-    margin-left:30px ;
+    font-size: 20px;
     padding: 0px 0px;
-    margin: 10px 10px;
+    margin: 10px 20px;
+    background-color: transparent;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .navbtn button{
+    border: 0px;
+    font-size: 20px;
+    padding: 0px 0px;
+    margin: 10px 20px;
     background-color: transparent;
   }
 
-  .navbtn{
+  .navbtn button{
     font-weight: bold;
     text-decoration: none;
     position: relative;
   }
 
-  .navbtn::after{
+
+  .navbtn button::after{
     position: absolute;
     content: "";
     width: 0%;
@@ -120,11 +141,11 @@
     transition: all 0.2s ease-in-out;
   }
 
-  .navbtn:hover{
+  .navbtn button:hover{
     cursor: pointer;
   }
 
-  .navbtn:hover::after{
+  .navbtn button:hover::after{
     cursor: pointer;
     width: 100%;
     left: 0;
@@ -184,7 +205,7 @@
 .back-btn button{
   margin-top: 50px;
   border-radius: 10px;
-  padding: 5px 5px;
+  padding: 8px 8px;
 }
 
 .add-color{

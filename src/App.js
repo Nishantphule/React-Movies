@@ -18,6 +18,7 @@ import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import AddIcon from '@mui/icons-material/Add';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 // import IconButton from '@mui/material/IconButton';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const INITIAL_MOVIE_buttonST = [
   {
@@ -99,18 +100,25 @@ function App() {
   return (
     <div className="App">
       <AppBar className="navigate-bar" position="static" color="primary">
-      <Toolbar>
-      <Button variant="inherit" className="navbtn" onClick={() => navigate("/")} ><HomeIcon/>HOME
+      <Toolbar className="navbar">
+      <div className="navbtn">
+      <Button variant="inherit"  onClick={() => navigate("/")} ><HomeIcon/>HOME
           </Button >
-          <Button variant="inherit" className="navbtn" onClick={() => navigate("/movies")} >
+          <Button variant="inherit"  onClick={() => navigate("/movies")} >
           <LocalMoviesIcon/>MOVIES
           </Button>
-          <Button variant="inherit" className="navbtn" onClick={() => navigate("/addmovies")} >
+          <Button variant="inherit"  onClick={() => navigate("/addmovies")} >
           <AddIcon />ADD MOVIES
           </Button>
-          <Button variant="inherit" className="navbtn" onClick={() => navigate("/color")} >
+          <Button variant="inherit"  onClick={() => navigate("/color")} >
           <ColorLensIcon/>COLOR GAME
           </Button>
+      </div>
+      <div className="navbtn1">
+      <Button variant="inherit"  onClick={() => navigate("/color")} >
+          <Brightness7Icon/>LIGHT MODE
+          </Button>
+      </div>
       </Toolbar>
         </AppBar>
         
