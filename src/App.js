@@ -13,7 +13,11 @@ import TextField from '@mui/material/TextField';
 import AppBar from '@mui/material/AppBar';
 import { Toolbar } from "@mui/material";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-
+import HomeIcon from '@mui/icons-material/Home';
+import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
+import AddIcon from '@mui/icons-material/Add';
+import ColorLensIcon from '@mui/icons-material/ColorLens';
+// import IconButton from '@mui/material/IconButton';
 
 const INITIAL_MOVIE_buttonST = [
   {
@@ -96,18 +100,17 @@ function App() {
     <div className="App">
       <AppBar className="navigate-bar" position="static" color="primary">
       <Toolbar>
-      <button onClick={() => navigate("/")} >
-            HOME
-          </button >
-          <button onClick={() => navigate("/movies")} >
-          MOVIES
-          </button>
-          <button onClick={() => navigate("/addmovies")} >
-          ADD MOVIES
-          </button>
-          <button onClick={() => navigate("/color")} >
-          COLOR GAME
-          </button>
+      <Button variant="inherit" className="navbtn" onClick={() => navigate("/")} ><HomeIcon/>HOME
+          </Button >
+          <Button variant="inherit" className="navbtn" onClick={() => navigate("/movies")} >
+          <LocalMoviesIcon/>MOVIES
+          </Button>
+          <Button variant="inherit" className="navbtn" onClick={() => navigate("/addmovies")} >
+          <AddIcon />ADD MOVIES
+          </Button>
+          <Button variant="inherit" className="navbtn" onClick={() => navigate("/color")} >
+          <ColorLensIcon/>COLOR GAME
+          </Button>
       </Toolbar>
         </AppBar>
         

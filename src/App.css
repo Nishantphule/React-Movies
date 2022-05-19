@@ -93,38 +93,38 @@
     justify-content: space-evenly;
   }
 
-  .navigate-bar button{
+
+  .navbtn{
     border: 0px;
-    font-size: 22px;
+    font-size: 25px;
     margin-left:30px ;
     padding: 0px 0px;
     margin: 10px 10px;
     background-color: transparent;
-    color: white;
   }
 
-  .navigate-bar button {
+  .navbtn{
     font-weight: bold;
     text-decoration: none;
     position: relative;
   }
 
-  .navigate-bar button::after{
+  .navbtn::after{
     position: absolute;
     content: "";
     width: 0%;
     height: 4px;
-    background-color: black;
+    background-color: white;
     left: 50%;
     bottom: -10px;
     transition: all 0.2s ease-in-out;
   }
 
-  .navigate-bar button:hover{
+  .navbtn:hover{
     cursor: pointer;
   }
 
-  .navigate-bar button:hover::after{
+  .navbtn:hover::after{
     cursor: pointer;
     width: 100%;
     left: 0;
