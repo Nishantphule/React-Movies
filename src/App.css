@@ -13,25 +13,21 @@
 .title{
   font-size: 20px;
   margin: 0;
-  background-color: white;
 }
 
 .summary{
   margin-top: 0;
-  background-color: white;
 }
 
 .rating{
   font-size: 20px;
   font-weight: bold;
-  background-color: white;
 }
 
 .head{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
 }
 
 .main-container{
@@ -44,7 +40,6 @@
 .like-dislike{
   display: flex;
   align-items: flex-start;
-  background-color: white;
 }
 .like-dislike button{
   margin-left: 10px;
@@ -61,14 +56,12 @@
 
 .input{
   width: 80%;
-  background-color: lightcyan;
 }
 
 .add{
   margin-top: 20px;
   font-size: 25px;
   margin-bottom: 20px;
-  color: whitesmoke;
   width: 80%;
 }
 
@@ -107,7 +100,7 @@
 
   .navbtn1 button{
     border: 0px;
-    font-size: 20px;
+    font-size: 16px;
     padding: 0px 0px;
     margin: 10px 20px;
     background-color: transparent;
@@ -117,7 +110,7 @@
 
   .navbtn button{
     border: 0px;
-    font-size: 20px;
+    font-size: 16px;
     padding: 0px 0px;
     margin: 10px 20px;
     background-color: transparent;
@@ -199,9 +192,6 @@
     justify-content: space-between;
   }
 
-  .head-info h1,p{
-  }
-
 .back-btn button{
   margin-top: 50px;
   border-radius: 10px;
@@ -216,4 +206,3 @@
   justify-content: center;
   gap: 20px;
 }
-

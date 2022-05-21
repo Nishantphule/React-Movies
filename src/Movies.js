@@ -21,7 +21,7 @@ export function Movies({ movie,id }) {
 
   const navigate = useNavigate();
   return (
-    <Card className='movie'>
+    <Card className='movie' key={id}>
       <img className="profilepic" src={movie.pic} alt={movie.title} /> <br></br>
       <CardContent>
       <div className='head'>
