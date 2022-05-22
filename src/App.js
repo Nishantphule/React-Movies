@@ -1,17 +1,15 @@
 import { Routes, Route, useParams, Navigate } from "react-router-dom";
 import { AddColor } from './AddColor';
 import './App.css';
-import {Counter} from './Counter.js'
 import { Home } from "./Home";
 import { Movies } from './Movies.js';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import * as React from 'react';
-// import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import AppBar from '@mui/material/AppBar';
-import { Toolbar } from "@mui/material";
+import { IconButton, Toolbar } from "@mui/material";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
@@ -21,6 +19,10 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+// import { MoreVert } from "@mui/icons-material";
+import DeleteIcon from '@mui/icons-material/Delete';
+import { NotFound } from "./NotFound";
+import { User } from "./User";
 
 
 
@@ -121,11 +123,6 @@ const Theme = createTheme({
   },
 });
 
-// fetch("https://6288bebc7af826e39e64a149.mockapi.io/movie")
-// .then((data) => data.json())
-// .then((movies) => console.log(Movies,movies))
-
-
   return (
 
     <ThemeProvider theme={Theme}>
@@ -145,8 +142,10 @@ const Theme = createTheme({
           <Button variant="inherit"  onClick={() => navigate("/color")} >
           <ColorLensIcon/>COLOR GAME
           </Button>
-          <Button variant="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}>
-          {mode === "light" ?  <Brightness7Icon/> : <Brightness4Icon/>}{mode === "light" ?  "dark" : "light"} MODE
+      </div>
+      <div className="navbtn1">
+          <Button  variant="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}>
+          {mode === "light" ?  <Brightness4Icon/> : <Brightness7Icon/>}{mode === "light" ?  "dark" : "light"} MODE
           </Button>
       </div>
       
@@ -155,8 +154,8 @@ const Theme = createTheme({
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movieapp list={list} setList={setList}/>} />
-        <Route path="/movies/:id" element={<MovieDetails list={list} setList={setList}/>} />
+        <Route path="/movies" element={<Movieapp />} />
+        <Route path="/movies/:id" element={<MovieDetails/>} />
         <Route path="/addmovies" element={<AddMovie list={list} setList={setList}/>} />
         <Route path="/user" element={<User />} />
         <Route path="/color" element={<AddColor />} />
@@ -194,26 +193,54 @@ function AddMovie({list, setList}) {
 }
 
 
-function Movieapp({list}) {
+function Movieapp() {
+  const [list, setList] = useState([]);
+
+  const getMovies = () => {
+    fetch("https://6288bebc7af826e39e64a149.mockapi.io/movie", {
+      method: "GET"
+    })
+  .then((data) => data.json())
+  .then((movies) => setList(movies))
+  }
+
+useEffect(() => getMovies(),[]);
+
+  const deleteMovie = (id) => {
+    fetch("https://6288bebc7af826e39e64a149.mockapi.io/movie/"+id, {
+      method: "DELETE"
+    })
+  .then((data) => data.json())
+  .then(() => getMovies())
+}
   return (
     <div className='main-container'>
-      {list.map((data ,index) => (<Movies key={index} movie={data} id={index} />))}
+      {list.map((data) => (<Movies 
+      key={data.id} 
+      movie={data} 
+      id={data.id} 
+      deletebutton={<IconButton  onClick={() => deleteMovie(data.id)}><DeleteIcon color="error"/></IconButton>}
+/>))}
     </div>
   );
 }
 
-function NotFound(){
-  return(
-    <div>
-      <h1>404 Not Found</h1>
-    </div>
-  )
-}
 
-function MovieDetails({list}){
+function MovieDetails(){
 
   const { id } = useParams()
-  const movie = list[id];
+
+  const [movie, setMovie] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://6288bebc7af826e39e64a149.mockapi.io/movie/${id}`, {
+      method: "GET"
+    })
+  .then((data) => data.json())
+  .then((movies) => setMovie(movies))
+  
+  }, [id])
+
   const styles = {
     color: "green"
   };
@@ -243,6 +270,7 @@ function MovieDetails({list}){
   );
 }
 
+
 function Backbtn(){
   const navigate = useNavigate();
   return(
@@ -252,36 +280,5 @@ function Backbtn(){
   )
 }
 
-function User(){
-  const users = [
-   {
-     name: "Vaibhav",
-     pic: "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-   },
-   {
-     name: "Tejaswini",
-     pic: "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixbuttonb=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW4lMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
-   },
-   {
-     name: "Shreyas",
-     pic: "https://1.bp.blogspot.com/-OUtpaIR5QhI/YTuyWw8XvtI/AAAAAAAAuUk/ZtNLZvNSoL8pyaYESOjwReXEhYu1zFltgCLcBGAsYHQ/s1536/Best-Profile-Pic-For-Boys%2B%252813%2529.jpg",
-   },
- ];
- return (
-   <div className='users'>
-     {users.map(nm => <Msg name={nm.name} pic={nm.pic}/> )}
-   </div>
- )
-}
-
-function Msg({name,pic}){
- return  (
-    <div className="msg">
-     <img className="profilepic1" src ={pic} alt="Profile" />
-     <h1> Hello {name} ❤</h1>
-     < Counter/>
-    </div>
- );
-}
 
 export default App;

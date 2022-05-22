@@ -9,7 +9,7 @@ import { Card, CardActions, CardContent } from '@mui/material';
 
 
 
-export function Movies({ movie,id }) {
+export function Movies({ movie,id,deletebutton }) {
   const styles = {
     color: "green"
   };
@@ -39,7 +39,10 @@ export function Movies({ movie,id }) {
       </div>
       {show ? (<p className='summary'>{movie.description}</p>) : ""}
       </CardContent>
-      <CardActions><Counter /></CardActions>
+      <CardActions className='actions'>   
+          <Counter/>
+          {deletebutton}         
+          </CardActions>
     </Card>
   );
 }

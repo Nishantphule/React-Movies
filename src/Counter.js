@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import IconButton from '@mui/material/IconButton';
 import { Badge } from '@mui/material';
@@ -8,6 +8,10 @@ function Counter() {
   const [like, setLike] = useState(0);
   const [unlike, setUnlike] = useState(0);
 
+
+  useEffect(() => {
+    console.log("Like is updated:", like , unlike)
+  },[like, unlike])
 
   return (
     <div className='like-dislike'>
