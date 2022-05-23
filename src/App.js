@@ -260,7 +260,7 @@ function MovieEdit(){
   
   }, [id])
 
-  const [Add, setMovie] = useState({pic:"",title:'',rating:"",description:"",url:""});
+  const [Add, setMovie] = useState({pic:movie.pic,title:movie.title,rating:movie.rating,description:movie.description,url:movie.url});
 
     const newMovie = (add) => {
       fetch(`https://6288bebc7af826e39e64a149.mockapi.io/movie/${id}`, {
