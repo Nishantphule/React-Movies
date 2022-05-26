@@ -7,8 +7,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { Card, CardActions, CardContent } from '@mui/material';
 
-
-
 export function Movies({ movie,id,editbtn,deletebtn }) {
   const styles = {
     color: "green"
