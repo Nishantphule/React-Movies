@@ -70,7 +70,6 @@
   cursor: pointer;
 }
 
-
 .profilepic1{
   height: 300px;
   width: 300px;
@@ -85,7 +84,6 @@
     align-items: center;
     justify-content: space-evenly;
   }
-
 
   .navbar{
     display: flex;
@@ -111,7 +109,6 @@
     text-decoration: none;
     position: relative;
   }
-
 
   .navbtn button::after{
     position: absolute;
@@ -152,7 +149,6 @@
     cursor: pointer;
   }
 
-
   .home{
     display: flex;
     align-items: center;
@@ -169,8 +165,6 @@
     color: rgb(143, 143, 153);
     font-weight: bold;
   }
-
-
 
   .main-container-info{
     margin-top:30px ;
