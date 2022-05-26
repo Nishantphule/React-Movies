@@ -131,10 +131,11 @@ const Theme = createTheme({
       <AppBar className="navigate-bar" position="static" color="primary">
       <Toolbar className="navbar">
       <div className="navbtn">
-      <Button variant="inherit"  onClick={() => navigate("/")} ><HomeIcon/>HOME
-          </Button >
+      <Button variant="inherit"  onClick={() => navigate("/")} >
+        <HomeIcon/>HOME
+        </Button >
           <Button variant="inherit"  onClick={() => navigate("/movies")} >
-          <LocalMoviesIcon/>MOVIES
+            <LocalMoviesIcon/>MOVIES
           </Button>
           <Button variant="inherit"  onClick={() => navigate("/addmovies")} >
           <AddIcon />ADD MOVIES
@@ -168,6 +169,7 @@ const Theme = createTheme({
     </ThemeProvider>
   );
 }
+
 
 function AddMovie() {
   const navigate = useNavigate();
@@ -285,6 +287,7 @@ function MovieEdit(){
     </div>
   );
 }
+
 
 function MovieDetails(){
 

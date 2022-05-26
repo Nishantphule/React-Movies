@@ -4,7 +4,6 @@ import IconButton from '@mui/material/IconButton';
 import { Badge } from '@mui/material';
 
 function Counter() {
-  // let like = 100;
   const [like, setLike] = useState(0);
   const [unlike, setUnlike] = useState(0);
 
