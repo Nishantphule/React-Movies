@@ -199,7 +199,7 @@ function AddMovie() {
       <TextField className="input" onChange={(e => setMovie({ ...Add, rating: e.target.value }))} id="filled-basic" label="Enter movie Rating" variant="filled" />
       <TextField className="input" onChange={(e => setMovie({ ...Add, description: e.target.value }))} id="filled-basic" label="Enter movie Description" variant="filled" />
       <TextField className="input" onChange={(e => setMovie({ ...Add, url: e.target.value }))} id="filled-basic" label="Enter movie Trailer url" variant="filled" />
-      <Button className="add" onClick={() => newMovie(Add)} variant="contained">Add Movie</Button>
+      <Button style={{width:"20%"}} className="add" onClick={() => newMovie(Add)} variant="contained">Add Movie</Button>
       {/* <div className='main-container'>
       {list.map((data ,index) => (<Movies movie={data} id={index} />))}
     </div> */}
@@ -281,7 +281,7 @@ function MovieEdit(){
       <TextField className="input" onChange={(e => setMovie({ ...Add, rating: e.target.value }))} id="filled-basic" label="Enter movie Rating" variant="filled" placeholder={movie.rating}/>
       <TextField className="input" onChange={(e => setMovie({ ...Add, description: e.target.value }))} id="filled-basic" label="Enter movie Description" variant="filled" placeholder={movie.description}/>
       <TextField className="input" onChange={(e => setMovie({ ...Add, url: e.target.value }))} id="filled-basic" label="Enter movie Trailer url" variant="filled" placeholder={movie.url}/>
-      <Button className="add" onClick={() => newMovie(Add)} variant="contained">UPDATE Movie</Button>
+      <Button style={{width:"20%"}} className="add" onClick={() => newMovie(Add)} color="secondary" variant="contained">UPDATE Movie</Button>
       <Backbtn/>
     </div>
   );
