@@ -25,11 +25,11 @@ export function Movies({ movie,id,editbtn,deletebtn }) {
       <div className='head'>
         <h1 className='title'>
           {movie.title} 
-        <IconButton onClick={() => navigate("/movies/"+ id)} className="btn-info btnn" color="primary" aria-label="like">
-         <InfoIcon/>
+        <IconButton title="Trailer" onClick={() => navigate("/movies/"+ id)} className="btn-info btnn" color="primary" aria-label="like">
+         <InfoIcon />
          </IconButton>
 
-         <IconButton onClick={() => setShow(!show)} className="btn-sum btnn" color="primary" aria-label="like">
+         <IconButton title="Toggle Summary" onClick={() => setShow(!show)} className="btn-sum btnn" color="primary" aria-label="like">
          {show ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
          </IconButton>
       </h1>
@@ -38,7 +38,7 @@ export function Movies({ movie,id,editbtn,deletebtn }) {
       {show ? (<p className='summary'>{movie.description}</p>) : ""}
       </CardContent>
       <CardActions className='actions'>   
-          <Counter/>
+          <Counter id={id}/>
           <div>
           {editbtn}
           {deletebtn}

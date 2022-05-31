@@ -236,8 +236,8 @@ useEffect(() => getMovies(),[]);
       key={data.id} 
       movie={data} 
       id={data.id}
-      editbtn={<IconButton  onClick={() => navigate("/movieedit/"+ data.id)}><EditIcon color="primary"/></IconButton>} 
-      deletebtn={<IconButton  onClick={() => deleteMovie(data.id)}><DeleteIcon color="error"/></IconButton>}
+      editbtn={<IconButton title="Edit Movie" onClick={() => navigate("/movieedit/"+ data.id)}><EditIcon color="primary"/></IconButton>} 
+      deletebtn={<IconButton title="Delete Movie"  onClick={() => deleteMovie(data.id)}><DeleteIcon color="error"/></IconButton>}
 />))}
     </div>
   );
