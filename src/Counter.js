@@ -5,21 +5,10 @@ import { Badge } from '@mui/material';
 
 
 
-function Counter({ id }) {
-
-  // const [set, setMoviee] = useState([]);
-
-  //   fetch(`https://6288bebc7af826e39e64a149.mockapi.io/movie/${id}`, {
-  //     method: "GET"
-  //   })
-  // .then((data) => data.json())
-  // .then((movies) => setMoviee(movies))
-  
+function Counter() {
 
   const [like, setLike] = useState(0);
   const [unlike, setUnlike] = useState(0);
-
-
 
   useEffect(() => {
     console.log("Like is updated:", like , unlike)

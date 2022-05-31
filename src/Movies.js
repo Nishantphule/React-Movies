@@ -38,7 +38,7 @@ export function Movies({ movie,id,editbtn,deletebtn }) {
       {show ? (<p className='summary'>{movie.description}</p>) : ""}
       </CardContent>
       <CardActions className='actions'>   
-          <Counter id={id}/>
+          <Counter/>
           <div>
           {editbtn}
           {deletebtn}
