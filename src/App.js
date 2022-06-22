@@ -149,7 +149,8 @@ const [show, setShow] = useState(false);
           {mode === "light" ?  <Brightness4Icon/> : <Brightness7Icon/>}{mode === "light" ?  "dark" : "light"} MODE
           </Button>
       </div>
-      <MenuOutlinedIcon onClick={() => setShow(!show)} className="menu" />
+      <div className="menu"><MenuOutlinedIcon  onClick={() => setShow(!show)}  /></div>
+      
       {show? <div className="navbtn-low">
       <Button variant="inherit"  onClick={() => navigate("/")} >
         <HomeIcon/>HOME

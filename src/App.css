@@ -212,10 +212,11 @@
 .navbtn2{
   display: none;
 }
-.navbar-low{
+.menu{
   display: none;
 }
-@media only screen and (max-width:802px){
+
+@media only screen and (max-width:850px){
   .navbtn{
     display: none;
   }
@@ -235,7 +236,7 @@
     font-weight: bold;
     text-decoration: none;
     position: relative;
-    margin-right: 0px;
+    margin-left: 0px;
   }
 
   .navbtn-low button::after{
@@ -272,10 +273,10 @@
   .navbtn-low{
     display: flex;
     flex-wrap: wrap;
-    align-self: flex-end;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin-left: auto;
+    align-self: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-right: auto;
   }
   .navbtn2 button{
     border: 0px;
@@ -285,7 +286,7 @@
     background-color: transparent;
     font-weight: bold;
     text-decoration: none;
-    margin-right: 0px;
+    margin-left: 0px;
   }
   .menu{
     margin-left: auto;
