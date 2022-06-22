@@ -206,3 +206,88 @@
   align-items: center;
   justify-content: space-between;
 }
+.navbtn-low{
+  display: none;
+}
+.navbtn2{
+  display: none;
+}
+.navbar-low{
+  display: none;
+}
+@media only screen and (max-width:802px){
+  .navbtn{
+    display: none;
+  }
+  .navbtn-low{
+    display: flex;
+    flex-direction: column;
+  }
+  .navbtn-low button{
+    border: 0px;
+    font-size: 16px;
+    padding: 0px 0px;
+    margin: 10px 20px;
+    background-color: transparent;
+  }
+
+  .navbtn-low button{
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    margin-right: 0px;
+  }
+
+  .navbtn-low button::after{
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: white;
+    left: 50%;
+    bottom: -10px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .navbtn-low button:hover{
+    cursor: pointer;
+  }
+
+  .navbtn-low button:hover::after{
+    cursor: pointer;
+    width: 100%;
+    left: 0;
+  }
+
+  .navbar{
+    display: flex;
+    flex-direction: column;
+  }
+  .navbtn1{
+    display: none;
+  }
+  .navbtn2{
+    display: block;
+  }
+  .navbtn-low{
+    display: flex;
+    flex-wrap: wrap;
+    align-self: flex-end;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-left: auto;
+  }
+  .navbtn2 button{
+    border: 0px;
+    font-size: 16px;
+    padding: 0px 0px;
+    margin: 10px 20px;
+    background-color: transparent;
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 0px;
+  }
+  .menu{
+    margin-left: auto;
+  }
+}

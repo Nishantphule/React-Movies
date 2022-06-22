@@ -23,6 +23,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { NotFound } from "./NotFound";
 import { User } from "./User";
 import EditIcon from '@mui/icons-material/Edit';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
 
 const INITIAL_MOVIE_buttonST = [
@@ -121,7 +122,7 @@ const Theme = createTheme({
     mode: mode,
   },
 });
-
+const [show, setShow] = useState(false);
   return (
 
     <ThemeProvider theme={Theme}>
@@ -148,7 +149,26 @@ const Theme = createTheme({
           {mode === "light" ?  <Brightness4Icon/> : <Brightness7Icon/>}{mode === "light" ?  "dark" : "light"} MODE
           </Button>
       </div>
-      
+      <MenuOutlinedIcon onClick={() => setShow(!show)} className="menu" />
+      {show? <div className="navbtn-low">
+      <Button variant="inherit"  onClick={() => navigate("/")} >
+        <HomeIcon/>HOME
+        </Button >
+          <Button variant="inherit"  onClick={() => navigate("/movies")} >
+            <LocalMoviesIcon/>MOVIES
+          </Button>
+          <Button variant="inherit"  onClick={() => navigate("/addmovies")} >
+          <AddIcon />ADD MOVIES
+          </Button>
+          <Button variant="inherit"  onClick={() => navigate("/color")} >
+          <ColorLensIcon/>COLOR GAME
+          </Button>
+          <div className="navbtn2">
+          <Button  variant="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}>
+          {mode === "light" ?  <Brightness4Icon/> : <Brightness7Icon/>}{mode === "light" ?  "dark" : "light"} MODE
+          </Button>
+      </div>
+      </div>:""}
       </Toolbar>
         </AppBar>
 
@@ -200,9 +220,6 @@ function AddMovie() {
       <TextField className="input" onChange={(e => setMovie({ ...Add, description: e.target.value }))} id="filled-basic" label="Enter movie Description" variant="filled" />
       <TextField className="input" onChange={(e => setMovie({ ...Add, url: e.target.value }))} id="filled-basic" label="Enter movie Trailer url" variant="filled" />
       <Button style={{width:"20%"}} className="add" onClick={() => newMovie(Add)} variant="contained">Add Movie</Button>
-      {/* <div className='main-container'>
-      {list.map((data ,index) => (<Movies movie={data} id={index} />))}
-    </div> */}
     </div>
   );
 }
