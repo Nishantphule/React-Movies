@@ -209,7 +209,7 @@ function AddMovie() {
       "Content-Type": "application/json",
     },
     }).then((data) => data.json())
-    .then(() => navigate(-1))
+    .then(() => navigate("/movies"))
     }
 
 
