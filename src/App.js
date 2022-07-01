@@ -1,16 +1,13 @@
-import { Routes, Route, useParams, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { AddColor } from './AddColor';
 import './App.css';
 import { Home } from "./Home";
-import { Movies } from './Movies.js';
 import { useNavigate } from 'react-router-dom';
-import { useState ,useEffect} from 'react';
+import { useState} from 'react';
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import AppBar from '@mui/material/AppBar';
-import { IconButton, Toolbar } from "@mui/material";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { Toolbar } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import AddIcon from '@mui/icons-material/Add';
@@ -19,11 +16,13 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { NotFound } from "./NotFound";
 import { User } from "./User";
-import EditIcon from '@mui/icons-material/Edit';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import { MovieDetails } from "./MovieDetails";
+import { MovieEdit } from "./MovieEdit";
+import { AddMovie } from "./AddMovie";
+import { Movieapp } from "./Movieapp";
 
 
 const INITIAL_MOVIE_buttonST = [
@@ -188,176 +187,6 @@ const [show, setShow] = useState(false);
     </Paper>
     </ThemeProvider>
   );
-}
-
-
-function AddMovie() {
-  const navigate = useNavigate();
-  const [Add, setMovie] = useState({pic:"",title:'',rating:"",description:"",url:""});
-  const styles = {
-    color: "green"
-  };
-  Add.rating > 7 ?
-    styles.color = "green" :
-    styles.color = "red";
-
-    const newMovie = (add) => {
-      fetch("https://6288bebc7af826e39e64a149.mockapi.io/movie", {
-      method: "POST",
-      body: JSON.stringify(add),
-      headers: {
-      "Content-Type": "application/json",
-    },
-    }).then((data) => data.json())
-    .then(() => navigate("/movies"))
-    }
-
-
-  return (
-    <div className='add-movie'>
-      <TextField className="input" onChange={(e => setMovie({ ...Add, pic: e.target.value }))} id="filled-basic" label="Enter poster url" variant="filled" />
-      <TextField className="input" onChange={(e => setMovie({ ...Add, title: e.target.value }))} id="filled-basic" label="Enter movie Title" variant="filled" />
-      <TextField className="input" onChange={(e => setMovie({ ...Add, rating: e.target.value }))} id="filled-basic" label="Enter movie Rating" variant="filled" />
-      <TextField className="input" onChange={(e => setMovie({ ...Add, description: e.target.value }))} id="filled-basic" label="Enter movie Description" variant="filled" />
-      <TextField className="input" onChange={(e => setMovie({ ...Add, url: e.target.value }))} id="filled-basic" label="Enter movie Trailer url" variant="filled" />
-      <Button style={{width:"20%"}} className="add" onClick={() => newMovie(Add)} variant="contained">Add Movie</Button>
-    </div>
-  );
-}
-
-
-function Movieapp() {
-  const navigate = useNavigate();
-  const [list, setList] = useState([]);
-
-  const getMovies = () => {
-    fetch("https://6288bebc7af826e39e64a149.mockapi.io/movie", {
-      method: "GET"
-    })
-  .then((data) => data.json())
-  .then((movies) => setList(movies))
-  }
-
-useEffect(() => getMovies(),[]);
-
-  const deleteMovie = (id) => {
-    fetch("https://6288bebc7af826e39e64a149.mockapi.io/movie/"+id, {
-      method: "DELETE"
-    })
-  .then((data) => data.json())
-  .then(() => getMovies())
-}
-
-  return (
-    <div className='main-container'>
-      {list.map((data) => (<Movies 
-      key={data.id} 
-      movie={data} 
-      id={data.id}
-      editbtn={<IconButton title="Edit Movie" onClick={() => navigate("/movieedit/"+ data.id)}><EditIcon color="primary"/></IconButton>} 
-      deletebtn={<IconButton title="Delete Movie"  onClick={() => deleteMovie(data.id)}><DeleteIcon color="error"/></IconButton>}
-/>))}
-    </div>
-  );
-}
-
-
-function MovieEdit(){
-
-  const navigate = useNavigate();
-
-  const { id } = useParams()
-
-  const [movie, setMoviee] = useState([]);
-
-  useEffect(() => {
-    fetch(`https://6288bebc7af826e39e64a149.mockapi.io/movie/${id}`, {
-      method: "GET"
-    })
-  .then((data) => data.json())
-  .then((movies) => setMoviee(movies))
-  
-  }, [id])
-
-  const [Add, setMovie] = useState({pic:movie.pic,title:movie.title,rating:movie.rating,description:movie.description,url:movie.url});
-
-    const newMovie = (add) => {
-      fetch(`https://6288bebc7af826e39e64a149.mockapi.io/movie/${id}`, {
-      method: "PUT",
-      body: JSON.stringify(add),
-      headers: {
-      "Content-Type": "application/json",
-    },
-    }).then((data) => data.json())
-    .then(() => navigate(-1))
-    }
-
-  return (
-    <div className='add-movie'>
-      <TextField className="input" onChange={(e => setMovie({ ...Add, pic: e.target.value }))} id="filled-basic" label="Enter poster url" variant="filled" placeholder={movie.pic}/>
-      <TextField className="input" onChange={(e => setMovie({ ...Add, title: e.target.value }))} id="filled-basic" label="Enter movie Title" variant="filled" placeholder={movie.title}/>
-      <TextField className="input" onChange={(e => setMovie({ ...Add, rating: e.target.value }))} id="filled-basic" label="Enter movie Rating" variant="filled" placeholder={movie.rating}/>
-      <TextField className="input" onChange={(e => setMovie({ ...Add, description: e.target.value }))} id="filled-basic" label="Enter movie Description" variant="filled" placeholder={movie.description}/>
-      <TextField className="input" onChange={(e => setMovie({ ...Add, url: e.target.value }))} id="filled-basic" label="Enter movie Trailer url" variant="filled" placeholder={movie.url}/>
-      <Button style={{width:"20%"}} className="add" onClick={() => newMovie(Add)} color="secondary" variant="contained">UPDATE Movie</Button>
-      <Backbtn/>
-    </div>
-  );
-}
-
-
-function MovieDetails(){
-
-  const { id } = useParams()
-
-  const [movie, setMovie] = useState([]);
-
-  useEffect(() => {
-    fetch(`https://6288bebc7af826e39e64a149.mockapi.io/movie/${id}`, {
-      method: "GET"
-    })
-  .then((data) => data.json())
-  .then((movies) => setMovie(movies))
-  
-  }, [id])
-
-  const styles = {
-    color: "green"
-  };
-  movie.rating > 7 ?
-    styles.color = "green" :
-    styles.color = "red";
-  return(
-    <div className="main-container-info">
-      <div className='movie-info'>
-      <iframe
-        width="100%"
-        height="700"
-        src={movie.url}
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-        <div className='head-info'>
-          <h1 className='title'>{movie.title}</h1>
-          <p className='rating' style={styles}>⭐{movie.rating}</p>
-        </div>
-        <p className='summary' >{movie.description}</p>
-        <Backbtn/>
-      </div>
-    </div>
-  );
-}
-
-
-function Backbtn(){
-  const navigate = useNavigate();
-  return(
-    <div className="back-btn">
-      <Button onClick={() => navigate(-1)} variant="contained"><ArrowBackIosIcon/> BACK</Button>
-    </div>
-  )
 }
 
 
