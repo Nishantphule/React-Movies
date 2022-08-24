@@ -32,11 +32,11 @@ export function Movieapp() {
   return (
     <div className='main-container'>
       {list.map((data) => (<Movies
-        key={data.id}
+        key={data._id}
         movie={data}
-        id={data.id}
+        id={data._id}
         editbtn={<IconButton title="Edit Movie" onClick={() => navigate("/movieedit/" + data.id)}><EditIcon color="primary" /></IconButton>}
-        deletebtn={<IconButton title="Delete Movie" onClick={() => deleteMovie(data.id)}><DeleteIcon color="error" /></IconButton>} />))}
+        deletebtn={<IconButton title="Delete Movie" onClick={() => deleteMovie(data._id)}><DeleteIcon color="error" /></IconButton>} />))}
     </div>
   );
 }
