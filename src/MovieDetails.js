@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import * as React from 'react';
 import { Backbtn } from "./Backbtn";
+import {API} from "./global"
 
 export function MovieDetails() {
 
@@ -10,7 +11,7 @@ export function MovieDetails() {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    fetch(`https://6288bebc7af826e39e64a149.mockapi.io/movie/${id}`, {
+    fetch(`${API}/movies/${id}`, {
       method: "GET"
     })
       .then((data) => data.json())

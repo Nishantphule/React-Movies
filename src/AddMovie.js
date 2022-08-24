@@ -3,6 +3,7 @@ import { useState } from 'react';
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import {API} from "./global"
 
 export function AddMovie() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export function AddMovie() {
     styles.color = "red";
 
   const newMovie = (add) => {
-    fetch("https://6288bebc7af826e39e64a149.mockapi.io/movie", {
+    fetch(`${API}/movies`, {
       method: "POST",
       body: JSON.stringify(add),
       headers: {

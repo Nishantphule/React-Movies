@@ -5,6 +5,7 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Backbtn } from "./Backbtn";
+import {API} from "./global"
 
 export function MovieEdit() {
 
@@ -15,7 +16,7 @@ export function MovieEdit() {
   const [movie, setMoviee] = useState([]);
 
   useEffect(() => {
-    fetch(`https://6288bebc7af826e39e64a149.mockapi.io/movie/${id}`, {
+    fetch(`${API}/movies/${id}`, {
       method: "GET"
     })
       .then((data) => data.json())
@@ -26,7 +27,7 @@ export function MovieEdit() {
   const [Add, setMovie] = useState({ pic: movie.pic, title: movie.title, rating: movie.rating, description: movie.description, url: movie.url });
 
   const newMovie = (add) => {
-    fetch(`https://6288bebc7af826e39e64a149.mockapi.io/movie/${id}`, {
+    fetch(`${API}/movies/${id}`, {
       method: "PUT",
       body: JSON.stringify(add),
       headers: {
