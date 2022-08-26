@@ -23,6 +23,9 @@ import { MovieDetails } from "./MovieDetails";
 import { MovieEdit } from "./MovieEdit";
 import { AddMovie } from "./AddMovie";
 import { Movieapp } from "./Movieapp";
+import Login from "./Login";
+import Signup from "./Signup";
+import LoginIcon from '@mui/icons-material/Login';
 
 
 const INITIAL_MOVIE_buttonST = [
@@ -157,7 +160,9 @@ const [show, setShow] = useState(false);
           <Button  variant="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}>
           {mode === "light" ?  <Brightness4Icon/> : <Brightness7Icon/>}{mode === "light" ?  "dark" : "light"} MODE
           </Button>
+          <Button variant="inherit"><LoginIcon/></Button>
       </div>
+      
       <div className="menu"><MenuOutlinedIcon  onClick={() => setShow(!show)}  /></div>
       
       {show? <div className="navbtn-low">
@@ -178,12 +183,15 @@ const [show, setShow] = useState(false);
           {mode === "light" ?  <Brightness4Icon/> : <Brightness7Icon/>}{mode === "light" ?  "dark" : "light"} MODE
           </Button>
       </div>
+      <Button variant="inherit"><LoginIcon/></Button>
       </div>:""}
       </Toolbar>
         </AppBar>
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/movies" element={<Movieapp />} />
         <Route path="/movies/:id" element={<MovieDetails/>} />
         <Route path="/movieedit/:id" element={<MovieEdit/>} />
@@ -194,8 +202,10 @@ const [show, setShow] = useState(false);
         <Route path="/404" element={<NotFound />} />
       </Routes>
     </div>
+
     </Paper>
     </ThemeProvider>
+    
   );
 }
 
