@@ -1,16 +1,34 @@
 import { Button, TextField } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import {API} from "./global"
 
 export default function Signup() {
+  const navigate = useNavigate();
+  const [Add, setUser] = useState({ username:"",password:"" });
+  const styles = {
+    color: "green"
+  };
+  Add.rating > 7 ?
+    styles.color = "green" :
+    styles.color = "red";
+
+  const newUser = (add) => {
+    fetch(`${API}/signup`, {
+      method: "POST",
+      body: JSON.stringify([add]),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((data) => data.json())
+      .then(() => navigate("/"));
+  };
   return (
     <div>
-      <div className='add-movie'>
-      <TextField className="input"  id="filled-basic" label="Enter poster url" variant="filled" />
-      <TextField className="input"  id="filled-basic" label="Enter movie Title" variant="filled" />
-      <TextField className="input"  id="filled-basic" label="Enter movie Rating" variant="filled" />
-      <TextField className="input"  id="filled-basic" label="Enter movie Description" variant="filled" />
-      <TextField className="input"  id="filled-basic" label="Enter movie Trailer url" variant="filled" />
-      <Button style={{ width: "20%" }} className="add"  variant="contained">Add Movie</Button>
+      <div className='add-User'>
+      <TextField className="input"  id="filled-basic" onChange={(e => setUser({ ...Add, username: e.target.value }))} label="Enter your username" variant="filled" />
+      <TextField className="input"  id="filled-basic" onChange={(e => setUser({ ...Add, password: e.target.value }))} label="password" variant="filled" />
+      <Button style={{ width: "80%" }} className="add" onClick={() => newUser(Add)} variant="contained">Signup</Button>
     </div>
     </div>
   )
