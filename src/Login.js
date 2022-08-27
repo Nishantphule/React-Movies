@@ -1,10 +1,10 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import {API} from "./global"
+// import { useNavigate } from 'react-router-dom';
+// import {API} from "./global"
 
 export default function Login() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [Add, setUser] = useState({ username:"",password:"" });
   const styles = {
     color: "green"
