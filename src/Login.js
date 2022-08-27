@@ -13,16 +13,16 @@ export default function Login() {
     styles.color = "green" :
     styles.color = "red";
 
-  const newUser = (add) => {
-    fetch(`${API}/users/login`, {
-      method: "GET",
-      body: JSON.stringify(add),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((data) => data.json())
-      .then(() => navigate("/movies"));
-  };
+  // const newUser = (add) => {
+  //   fetch(`${API}/users/login`, {
+  //     method: "GET",
+  //     body: JSON.stringify(add),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   }).then((data) => data.json())
+  //     .then(() => navigate("/movies"));
+  // };
   return (
     <div>
       <div className='add-User'>
