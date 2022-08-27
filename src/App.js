@@ -25,7 +25,7 @@ import { AddMovie } from "./AddMovie";
 import { Movieapp } from "./Movieapp";
 import Login from "./Login";
 import Signup from "./Signup";
-import LoginIcon from '@mui/icons-material/Login';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 const INITIAL_MOVIE_buttonST = [
@@ -160,10 +160,16 @@ const [show, setShow] = useState(false);
           <Button  variant="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}>
           {mode === "light" ?  <Brightness4Icon/> : <Brightness7Icon/>}{mode === "light" ?  "dark" : "light"} MODE
           </Button>
-          <Button variant="inherit" onClick={() => navigate("/signup")}><LoginIcon/></Button>
+          <Button variant="inherit" onClick={() => navigate("/signup")}><AccountCircleIcon />{}</Button>
       </div>
+
+
+<div className="menu">
+<AccountCircleIcon onClick={() => navigate("/signup")}/>
+<MenuOutlinedIcon onClick={() => setShow(!show)} />
+</div>
+
       
-      <div className="menu"><MenuOutlinedIcon  onClick={() => setShow(!show)}  /></div>
       
       {show? <div className="navbtn-low">
       <Button variant="inherit"  onClick={() => navigate("/")} >
@@ -183,7 +189,6 @@ const [show, setShow] = useState(false);
           {mode === "light" ?  <Brightness4Icon/> : <Brightness7Icon/>}{mode === "light" ?  "dark" : "light"} MODE
           </Button>
       </div>
-      <Button variant="inherit"><LoginIcon/></Button>
       </div>:""}
       </Toolbar>
         </AppBar>
