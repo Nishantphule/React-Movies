@@ -160,12 +160,12 @@ const [show, setShow] = useState(false);
           <Button  variant="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}>
           {mode === "light" ?  <Brightness4Icon/> : <Brightness7Icon/>}{mode === "light" ?  "dark" : "light"} MODE
           </Button>
-          <Button variant="inherit" onClick={() => navigate("/signup")}><AccountCircleIcon />{}</Button>
+          <Button variant="inherit" onClick={() => navigate("/login")}><AccountCircleIcon />{}</Button>
       </div>
 
 
 <div className="menu">
-<AccountCircleIcon onClick={() => navigate("/signup")}/>
+<AccountCircleIcon onClick={() => navigate("/login")}/>
 <MenuOutlinedIcon onClick={() => setShow(!show)} />
 </div>
 

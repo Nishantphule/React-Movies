@@ -6,7 +6,7 @@ import LoginIcon from '@mui/icons-material/Login';
 
 export default function Signup() {
   const navigate = useNavigate();
-  const [Add, setUser] = useState({ username:"",password:"" });
+  const [Add, setUser] = useState({ username:"",password:"" ,email:"" });
   const styles = {
     color: "green"
   };
@@ -28,7 +28,8 @@ export default function Signup() {
     <div>
       <div className='add-User'>
       <TextField className="input"  id="filled-basic" onChange={(e => setUser({ ...Add, username: e.target.value }))} label="Enter your username" variant="filled" />
-      <TextField className="input"  id="filled-basic" onChange={(e => setUser({ ...Add, password: e.target.value }))} label="password" variant="filled" />
+      <TextField className="input"  id="filled-basic" onChange={(e => setUser({ ...Add, password: e.target.value }))} label="Password" variant="filled" />
+      <TextField className="input"  id="filled-basic" onChange={(e => setUser({ ...Add, email: e.target.value }))} label="Email" variant="filled" />
       <Button style={{ width: "80%" }} className="add" onClick={() => newUser(Add)} variant="contained">Signup</Button>
       <p>If you already have an account ?<Button><LoginIcon onClick={() => navigate("/login")}/></Button></p>
     </div>
