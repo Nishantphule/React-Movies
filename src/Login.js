@@ -7,17 +7,15 @@ import {API} from "./global"
 export default function Login() {
   const navigate = useNavigate();
   const [Add, setUser] = useState({ username:"",password:"" });
-  const styles = {
-    color: "green"
-  };
-  Add.rating > 7 ?
-    styles.color = "green" :
-    styles.color = "red";
+
 
   const newUser = (add) => {
     fetch(`${API}/users/login`, {
       method: "POST",
-      headers: JSON.stringify(add),
+      body: JSON.stringify(add),
+      headers: {
+        "Content-Type": "application/json",
+      },
     }).then((data) => data.json())
       .then(() => Navigate("/movies"));
   };

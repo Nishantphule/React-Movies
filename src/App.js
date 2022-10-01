@@ -1,7 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AddColor } from './AddColor';
 import './App.css';
-import { Home } from "./Home";
 import { useNavigate } from 'react-router-dom';
 import { useState} from 'react';
 import * as React from 'react';
@@ -23,6 +22,7 @@ import { MovieDetails } from "./MovieDetails";
 import { MovieEdit } from "./MovieEdit";
 import { AddMovie } from "./AddMovie";
 import { Movieapp } from "./Movieapp";
+import {HomeMovies} from "./HomeMovies";
 import Login from "./Login";
 import Signup from "./Signup";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -194,7 +194,7 @@ const [show, setShow] = useState(false);
         </AppBar>
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomeMovies />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/movies" element={<Movieapp />} />

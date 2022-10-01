@@ -25,6 +25,7 @@ export function MovieDetails() {
   movie.rating > 7 ?
     styles.color = "green" :
     styles.color = "red";
+    
   return (
     <div className="main-container-info">
       <div className='movie-info'>

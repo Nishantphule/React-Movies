@@ -7,12 +7,6 @@ import LoginIcon from '@mui/icons-material/Login';
 export default function Signup() {
   const navigate = useNavigate();
   const [Add, setUser] = useState({ username:"",password:"" ,email:"" });
-  const styles = {
-    color: "green"
-  };
-  Add.rating > 7 ?
-    styles.color = "green" :
-    styles.color = "red";
 
   const newUser = (add) => {
     fetch(`${API}/users/signup`, {
