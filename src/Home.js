@@ -17,7 +17,7 @@ export function Home({ movie,id }) {
 
   return (
     <Card className='movie-home' key={id}>
-      <img className="profilepic-home" src={movie.pic} alt={movie.title} /> <br></br>
+      {/* <img className="profilepic-home" src={movie.pic} alt={movie.title} /> <br></br> */}
       <CardContent>
       <div className='head'>
         <h1 className='title'>
@@ -28,6 +28,7 @@ export function Home({ movie,id }) {
       </h1>
         <p style={styles} className='rating'>⭐{movie.rating}</p>
       </div>
+      {show ? (<p className='summary'>{movie.description}</p>) : ""}
       </CardContent>
     </Card>
   );
